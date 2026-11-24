@@ -1,5 +1,9 @@
 # Яндекс Практикум — «Введение в программирование, Kotlin»
 
+## Scope
+
+Keep / merge course solutions from **topic 4 onward** (`04-strings-functions`, `05-conditionals`, `06-loops`, `07-arrays`). Topics 02–03 were dropped from open PRs by request.
+
 Решения практических задач и конспекты кода из уроков.
 
 - Файлы `*-lesson*.kt` — блоки из теории (не обязательно компилируются целиком).
