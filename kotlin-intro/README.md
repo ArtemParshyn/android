@@ -1,20 +1,22 @@
-# Введение в программирование, Kotlin (Practicum)
+# Яндекс Практикум — «Введение в программирование, Kotlin»
 
-Solution code from Yandex Practicum course «Введение в программирование, Kotlin».
+Решения практических задач и конспекты кода из уроков.
+
+- Файлы `*-lesson*.kt` — блоки из теории (не обязательно компилируются целиком).
+- Файлы `*-practice-*` — решения задач; прошли проверку на платформе.
+
+Заметки: в 05-03 тренажёр использует Java (`05-03-practice-hamlet.java`);
+в 06-01 ожидаемый ответ 377 (Фибоначчи, 12 итераций); в 07-03-practice-2 нужен `mapValues()`.
+Тема 7, урок 6/6 — анкета обратной связи, не заполнялась.
 
 ## Layout
 
 ```
 kotlin-intro/
-  sprint-NN/          # one folder per sprint (or logical chunk)
-    lesson-NN/        # optional: per-lesson subfolder when useful
-      *.kt            # solution sources
+  NN-<slug>/     # one folder per урок/тема (lesson)
+    *.kt
 ```
 
-- Branch naming: `cursor/kotlin-intro-sprint-NN-<slug>-8273` (one branch / PR per sprint or logical chunk)
-- Commit messages: describe the lesson/topic, e.g. `Add sprint 1: variables and types`
+- One git branch / PR per урок (e.g. `06-loops`, `07-arrays`)
+- Not per sprint; not per small assignment inside a lesson
 - Do not force-push `main`
-
-## Status
-
-Scaffold only — awaiting handoff files (typically under `/tmp/kotlin-intro/` from the course browser agent).
