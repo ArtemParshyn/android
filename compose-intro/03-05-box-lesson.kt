@@ -14,6 +14,7 @@ fun RoundInitials(initials: String) {
 fun RoundInitialsPreview() {
     RoundInitials("АБ")
 }
+
 // ----
 
 @Composable
@@ -30,6 +31,7 @@ fun RoundInitials(initials: String) {
         )
     }
 }
+
 // ----
 
 @Composable
@@ -46,61 +48,62 @@ fun RoundInitials(initials: String) {
         )
     }
 }
-// ----
 
-data class Contact(
-    val name: String, //Имя
-    val surname: String? = null, //Отчество
-    val familyName: String, //Фамилия
-    val phone: String, //Телефон
-    val address: String //Адрес
-)
 // ----
 
 @Composable
-fun ContactColumn(contact: Contact) {
-    Column {
-        Text("Имя: ${contact.name}")
-        Text("Отчество: ${contact.surname.orEmpty()}")
-        Text("Фамилия: ${contact.familyName}")
-        Text("Мобильный телефон: ${contact.phone}")
-        Text("Адрес: ${contact.address}")
+fun RoundInitials(initials: String) {
+    Box(
+        modifier = Modifier.fillMaxSize(),
+        contentAlignment = Alignment.Center
+    ) {
+        Box(
+            contentAlignment = Alignment.Center
+        ) {
+            Image(
+                painter = painterResource(id = R.drawable.circle),
+                contentDescription = null,
+            )
+            Text(
+                text = initials
+            )
+        }
     }
 }
+
 // ----
+
+@Composable
+fun RoundInitials(initials: String) {
+    Box(
+        modifier = Modifier.padding(vertical = 16.dp),
+        contentAlignment = Alignment.Center
+    ) {
+        Image(
+            modifier = Modifier.fillMaxSize(),
+            painter = painterResource(id = R.drawable.circle),
+            contentDescription = null,
+        )
+        Text(
+            text = initials
+        )
+    }
+}
+
+@Composable
+fun BoxTask() {
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(100.dp)
+            .background(Color.LightGray)
+    ) {
+        RoundInitials("АБ")
+    }
+}
 
 @Preview(name = "portrait", showSystemUi = true)
 @Composable
-fun ContactColumnPreview() {
-    ContactColumn(
-        contact = Contact(
-            name = "Евгений",
-            surname = "Андреевич",
-            familyName = "Лукашин",
-            phone = "+7 495 495 95 95",
-            address = "г. Москва, 3-я улица Строителей, д. 25, кв. 12"
-        )
-    )
+fun Task1Preview() {
+    BoxTask()
 }
-// ----
-
-@Composable
-fun ContactColumn(contact: Contact) {
-   Column(
-      modifier = Modifier.fillMaxWidth(),
-      horizontalAlignment = Alignment.CenterHorizontally
-   ) {
-      Text("Имя: ${contact.name}")
-      Text("Отчество: ${contact.surname.orEmpty()}")
-      Text("Фамилия: ${contact.familyName}")
-      Text("Мобильный телефон: ${contact.phone}")
-      Text("Адрес: ${contact.address}")
-   }
-}
-// ----
-
-Column {
-        Text("Фиксированный размер", modifier = Modifier.background(Color.Red))
-        Text("Занимает 1/3", modifier = Modifier.weight(1f).background(Color.Green))
-        Text("Занимает 2/3", modifier = Modifier.weight(2f).background(Color.Blue))
-    }
