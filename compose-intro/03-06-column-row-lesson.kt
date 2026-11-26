@@ -5,6 +5,7 @@ data class Contact(
     val phone: String, //Телефон
     val address: String //Адрес
 )
+
 // ----
 
 @Composable
@@ -17,6 +18,7 @@ fun ContactColumn(contact: Contact) {
         Text("Адрес: ${contact.address}")
     }
 }
+
 // ----
 
 @Preview(name = "portrait", showSystemUi = true)
@@ -32,6 +34,7 @@ fun ContactColumnPreview() {
         )
     )
 }
+
 // ----
 
 @Composable
@@ -47,6 +50,7 @@ fun ContactColumn(contact: Contact) {
       Text("Адрес: ${contact.address}")
    }
 }
+
 // ----
 
 Column {
@@ -54,6 +58,7 @@ Column {
         Text("Занимает 1/3", modifier = Modifier.weight(1f).background(Color.Green))
         Text("Занимает 2/3", modifier = Modifier.weight(2f).background(Color.Blue))
     }
+
 // ----
 
 @Composable
@@ -88,6 +93,7 @@ fun ContactColumn(contact: Contact) {
         }
     }
 }
+
 // ----
 
 @Composable
@@ -107,6 +113,7 @@ fun ContactColumn(contact: Contact) {
         Text("Адрес: ${contact.address}")
     }
 }
+
 // ----
 
 @Composable
@@ -142,4 +149,45 @@ fun ListPreview() {
             )
         )
     )
+}
+
+// ----
+
+data class Contact(
+    val name: String, //Имя
+    val surname: String? = null, //Отчество
+    val familyName: String, //Фамилия
+    val isFavorite: Boolean = false,//Признак избранного контакта
+    val phone: String, //Телефон
+    val address: String //Адрес
+)
+
+// ----
+
+@Composable
+fun ContactColumn(contact: Contact) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(8.dp)
+                .background(Color.LightGray)
+                .padding(8.dp)
+        ) {
+            Column(
+                modifier = Modifier.weight(1F),
+                horizontalAlignment = Alignment.CenterHorizontally,
+            ) {
+                Text("Имя: ${contact.name}")
+                Text("Отчество: ${contact.surname.orEmpty()}")
+                Text("Фамилия: ${contact.familyName}")
+                Text("Мобильный телефон: ${contact.phone}")
+                Text("Адрес: ${contact.address}")
+            }
+            if (contact.isFavorite) Image(
+                modifier = Modifier.padding(start = 16.dp)
+                    .align(Alignment.CenterVertically),
+                painter = painterResource(id = android.R.drawable.star_big_on),
+                contentDescription = null
+            )
+    }
 }
