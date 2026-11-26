@@ -1,20 +1,24 @@
-<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:tools="http://schemas.android.com/tools">
+@Preview(name = "portrait", showSystemUi = true)
+@Composable
+fun ImagePreview() {
+    Image(
+        painter = painterResource(id = R.drawable.ic_launcher_foreground),
+    )
+}
+// ----
 
-    <application
-    ...
-        >
+<resources>
+…
+    <string name="standard_icon">Стандартная иконка</string>
+…
+</resources>
+// ----
 
-        <activity
-            android:name=".MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
-    </application>
-
-</manifest>
+@Preview(name = "portrait", showSystemUi = true)
+@Composable
+fun ImagePreview() {
+    Image(
+        painter = painterResource(id = R.drawable.ic_launcher_foreground),
+        contentDescription = stringResource(id = R.string.standard_icon)
+    )
+}
